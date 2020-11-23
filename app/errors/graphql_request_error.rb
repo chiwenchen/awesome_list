@@ -1,0 +1,3 @@
+class GraphqlRequestError < ApplicationError
+
+end
