@@ -1,0 +1,21 @@
+.row
+  .col-md-12
+    %strong Repositories
+    %table
+      %thead
+        %tr
+          %th Id
+          %th Name
+          %th Star count
+          %th Fork count
+          %th Last commit push at
+          %th Url
+      %tbody
+        - @repositories.each do |repo|
+          %tr
+            %td= repo.id
+            %td= repo.name
+            %td= repo.star_count
+            %td= repo.fork_count
+            %td= repo.last_commit_pushed_at
+            %td= repo.url

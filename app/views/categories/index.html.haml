@@ -1,0 +1,13 @@
+.row
+  .col-md-12
+    %strong Categories
+    %table
+      %thead
+        %tr
+          %th Id
+          %th Name
+      %tbody
+        - @categories.each do |category|
+          %tr
+            %td= category.id
+            %td= category.name

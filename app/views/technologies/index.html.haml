@@ -1,0 +1,13 @@
+.row
+  .col-md-12
+    %strong Technologies
+    %table
+      %thead
+        %tr
+          %th Id
+          %th Name
+      %tbody
+        - @technologies.each do |tech|
+          %tr
+            %td= tech.id
+            %td= tech.name

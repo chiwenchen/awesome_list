@@ -1,0 +1,6 @@
+= simple_form_for :repository, url: { action: 'create' } do |f|
+  = f.input :owner
+  = f.input :repo
+  = f.input :technology_name
+  = f.input :category_name
+  = f.submit 'Confirm'

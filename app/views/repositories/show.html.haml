@@ -1,0 +1,3 @@
+%h1= "Raw data for #{@repository.name.upcase}"
+%pre= JSON.pretty_generate(@repository.raw_data)
+= link_to "#{@repository.name} Github Rep", @repository.url, target: '_blank'
