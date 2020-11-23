@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.github.com/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"query Graphql__Queries__Repo($owner: String!, $repo_name:
+        String!) {\n  repository(owner: $owner, name: $repo_name) {\n    name\n    forkCount\n    stargazerCount\n    createdAt\n    updatedAt\n    url\n    pullRequests(last:
+        1) {\n      nodes {\n        author {\n          __typename\n          login\n        }\n        commits(last:
+        1) {\n          nodes {\n            commit {\n              pushedDate\n            }\n          }\n        }\n      }\n    }\n  }\n}","variables":{"owner":"github","repo_name":"graphql-client"},"operationName":"Graphql__Queries__Repo"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer b5b1adb07e36fb66e2d31cd4ccaf44eb1cb51dc8
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 20 Nov 2020 03:56:24 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-cache
+      X-Oauth-Scopes:
+      - read:gpg_key, read:org, read:public_key, read:repo_hook, repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Github-Media-Type:
+      - github.v4
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4993'
+      X-Ratelimit-Reset:
+      - '1605848180'
+      X-Ratelimit-Used:
+      - '7'
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+        X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding, Accept, X-Requested-With
+      X-Github-Request-Id:
+      - D3DF:45CA:2E82A0:3B8F27:5FB73E67
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"repository":{"name":"graphql-client","forkCount":175,"stargazerCount":934,"createdAt":"2016-08-03T18:51:26Z","updatedAt":"2020-11-18T15:40:05Z","url":"https://github.com/github/graphql-client","pullRequests":{"nodes":[{"author":{"__typename":"User","login":"tjoyal"},"commits":{"nodes":[{"commit":{"pushedDate":"2020-09-15T22:40:09Z"}}]}}]}}}}'
+    http_version:
+  recorded_at: Fri, 20 Nov 2020 03:56:24 GMT
+recorded_with: VCR 5.0.0
