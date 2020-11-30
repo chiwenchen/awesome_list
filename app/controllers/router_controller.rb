@@ -7,7 +7,7 @@ class RouterController < ApplicationController
 
   def route_mapping(resource = nil)
     if resource.kind_of? Category
-      @repositories = resource.repositories.inspect_raw
+      @repositories = resource.repositories
       @repository = @repositories.find_by(name: @repository_name)
       @repository ? render('repositories/show') : render('repositories/index')
 

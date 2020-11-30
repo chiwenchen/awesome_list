@@ -1,10 +1,10 @@
 class RepositoriesController < ApplicationController
   def index
-    @repositories = Repository.all.inspect_raw
+    @repositories = Repository.all
   end
 
   def show
-    @repository = Repository.inspect_raw.find(query_params[:id])
+    @repository = Repository.find(query_params[:id])
   end
 
   def new

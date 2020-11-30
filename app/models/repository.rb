@@ -1,15 +1,11 @@
 class Repository < ApplicationRecord
   belongs_to :category
 
-  def self.inspect_raw
-    # normolize data before store if data is critical and must have.
-    self.select(%Q(
-      *,
-      raw_data -> 'data' -> 'repository' ->> 'url' as url,
-      (raw_data -> 'data' -> 'repository' ->> 'forkCount')::int as fork_count,
-      (raw_data -> 'data' -> 'repository' ->> 'stargazerCount')::int as star_count,
-      raw_data -> 'data' -> 'repository' -> 'pullRequests' -> 'nodes' -> 0 -> 'author' -> 'login' as author_name,
-      TO_TIMESTAMP(raw_data -> 'data' -> 'repository' -> 'pullRequests' -> 'nodes' -> 0 -> 'commits' -> 'nodes' -> 0 -> 'commit' ->> 'pushedDate', 'YYYY-MM-DD%THH24:MI:SS%Z') as last_commit_pushed_at
-    ))
-  end
+  include NestedAccessor
+
+  nested_accessor :raw_data, :url, ['data', 'repository', 'url']
+  nested_accessor :raw_data, :fork_count, ['data', 'repository', 'forkCount']
+  nested_accessor :raw_data, :star_count, ['data', 'repository', 'stargazerCount']
+  nested_accessor :raw_data, :author_name, ['data', 'repository', 'pullRequests', 'nodes', 0, 'author', 'login']
+  nested_accessor(:raw_data, :last_commit_pushed_at, ['data', 'repository', 'pullRequests', 'nodes', 0, 'commits', 'nodes', 0, 'commit', 'pushedDate']) {|value| value.to_datetime }
 end
