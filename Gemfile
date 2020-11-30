@@ -39,6 +39,7 @@ gem 'awesome_print'
 gem 'graphql-client'
 gem 'simple_form'
 gem 'haml'
+gem 'jsonb_accessor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
