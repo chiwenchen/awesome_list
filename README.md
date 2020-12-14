@@ -1,21 +1,21 @@
 # README
 
-* Ruby version:\n
+* ### Ruby version:
   2.6.3
 
-* System dependencies\n
+* ### System dependencies
   run `bundle install` to install gems
 
-* Configuration:\n
+* ### Configuration:
   add Github access key in .env file `GITHUB_ACCESS_KEY` environment variable.
 
-* Database creation & migration:\n
+* ### Database creation & migration:
   rake db:create db:migrate
 
-* How to run the test suite\n
+* ### How to run the test suite
   `rpsec .`
 
-* Main component of the project\n
+* ### Main component of the project
   1. `app/controllers/router_controller.rb` control routing of accessing technology, category and repository
   2. `app/controllers/repositories_controller.rb` having the action for creating repository
   3. `app/services/graphql` helps to initial service to access Github graphql API and define graphql queries
